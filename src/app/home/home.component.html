@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">Sawalhi.Ai</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="navbar-brand">Sawalhi.ai</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -9,7 +9,7 @@
           <a class="nav-link" >Sports API</a>
         </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <li class="nav-item dropdown">
-          <a class="nav-link" >Past Projects</a>
+          <a class="nav-link" >Face Detection</a>
         </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <li class="nav-item">
           <a class="nav-link" >Contact Us</a>
@@ -20,3 +20,47 @@
       <a class="nav-link" routerLink="/admin">Admin Login</a>
     </span>
 </nav>
+
+<!--Home View-->
+<div style = "background-color: rgb(167, 191, 248);">
+
+    <div class = "container" style = "padding-top: 15px ;">
+        <div >
+            <h5 class="text-center">Weather Report <br>{{ weatherForecastData?.city.name }}, {{ weatherForecastData?.city.country }}</h5>
+            <br>
+            <div class="row">
+                <div class="col-sm">
+                    <h6>{{ weatherForecastData?.list[0].dt_txt | date:'EEE, MMMM dd '}}</h6>
+                    <div *ngIf="weatherForecastData?.list[0].weather[0].description !='heavy intensity rain'"><img src="assets/images/{{ weatherForecastData?.list[0].weather[0].main }}.png" alt="" /></div>
+                    <div *ngIf="weatherForecastData?.list[0].weather[0].description =='heavy intensity rain'"><img src="assets/images/ThunderIcon.png" alt="" /></div>    
+                    <p>{{ weatherForecastData?.list[0].weather[0].description | titlecase   }}</p>
+                    <p>Temp: {{ weatherForecastData?.list[0].main.temp | number: '1.0-0' }}° C</p>
+                </div>
+                <div class="col-sm">
+                    <h6>{{ weatherForecastData?.list[8].dt_txt | date:'EEE, MMMM dd '}}</h6>
+                    <div> <img src="assets/images/{{ weatherForecastData?.list[8].weather[0].main }}.png" alt="" /></div>
+                    <p>{{ weatherForecastData?.list[8].weather[0].description | titlecase   }}</p>
+                    <p>Temp: {{ weatherForecastData?.list[8].main.temp | number: '1.0-0' }}° C</p>
+                </div>
+                <div class="col-sm">
+                    <h6>{{ weatherForecastData?.list[16].dt_txt | date:'EEE, MMMM dd '}}</h6>
+                    <div> <img src="assets/images/{{ weatherForecastData?.list[16].weather[0].main }}.png" alt="" /></div>
+                    <p>{{ weatherForecastData?.list[16].weather[0].description | titlecase   }}</p>
+                    <p>Temp: {{ weatherForecastData?.list[16].main.temp | number: '1.0-0' }}° C</p>
+                </div>
+                <div class="col-sm">
+                    <h6>{{ weatherForecastData?.list[24].dt_txt | date:'EEE, MMMM dd '}}</h6>
+                    <div> <img src="assets/images/{{ weatherForecastData?.list[24].weather[0].main }}.png" alt="" /></div>
+                    <p>{{ weatherForecastData?.list[24].weather[0].description | titlecase   }}</p>
+                    <p>Temp: {{ weatherForecastData?.list[24].main.temp | number: '1.0-0' }}°</p>
+                </div>
+                <div class="col-sm">
+                    <h6>{{ weatherForecastData?.list[32].dt_txt | date:'EEE, MMMM dd '}}</h6>
+                    <div> <img src="assets/images/{{ weatherForecastData?.list[32].weather[0].main }}.png" alt="" /></div>
+                    <p>{{ weatherForecastData?.list[32].weather[0].description | titlecase   }}</p>
+                    <p>Temp: {{ weatherForecastData?.list[32].main.temp | number: '1.0-0' }}° C</p>
+                </div>
+            </div>
+    </div>
+
+</div>
