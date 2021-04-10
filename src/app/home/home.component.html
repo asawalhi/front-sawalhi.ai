@@ -3,10 +3,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" >Home <span class="sr-only">(current)</span></a>
-        </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <li class="nav-item">
-          <a class="nav-link" >Sports API</a>
+          <a class="nav-link" (click)="openHomeView()" >Home <span class="sr-only">(current)</span></a>
         </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <li class="nav-item dropdown">
           <a class="nav-link" >Face Detection</a>
@@ -22,7 +19,7 @@
 </nav>
 
 <!--Home View-->
-<div style = "background-color: rgb(167, 191, 248);">
+<div *ngIf="homeView" style = "background-color: rgb(167, 191, 248);">
 
     <div class = "container" style = "padding-top: 15px ;">
         <div >
@@ -64,3 +61,58 @@
     </div>
 
 </div>
+<br>
+
+<!--End of Home View-->
+
+<div class="text-center">
+    <button class="btn btn-info" (click)="openSportsView()">Sports API</button>
+</div>
+
+
+<!--Sports View-->
+<div *ngIf="sportsView" class = "container text-center" style="padding-top: 35px ;">
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class = "card mb-4 shadow-sm">
+        <h5 class = "card-header">{{firstSportsType.strSport}}</h5>
+        <div class="card-body">
+          <img src={{firstSportsType.strSportThumb}}>
+          <p style="text-overflow: ellipsis;">Format: {{firstSportsType.strFormat}}</p>
+          <button class="btn btn-info" (click)="openfirstSportsTypeDtls()">More Details</button>
+          <div *ngIf = "firstSportsTypeDtlsView">
+            <br>
+            <p>{{firstSportsType.strSportDescription}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class = "card mb-4 shadow-sm">
+        <h5 class = "card-header">{{secondSportsType.strSport}}</h5>
+        <div class="card-body">
+          <img src={{secondSportsType.strSportThumb}}>
+          <p style="text-overflow: ellipsis;">Format: {{secondSportsType.strFormat}}</p>
+          <button class="btn btn-info" (click)="opensecondSportsTypeDtls()">More Details</button>
+          <div *ngIf = "secondSportsTypeDtlsView">
+            <br>
+            <p>{{secondSportsType.strSportDescription}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class = "card mb-4 shadow-sm">
+        <h5 class = "card-header">{{thirdSportsType.strSport}}</h5>
+        <div class="card-body">
+          <img src={{thirdSportsType.strSportThumb}}>
+          <p style="text-overflow: ellipsis;">Format: {{thirdSportsType.strFormat}}</p>
+          <button class="btn btn-info" (click)="openthirdSportsTypeDtls()">More Details</button>
+          <div *ngIf = "thirdSportsTypeDtlsView">
+            <br>
+            <p>{{thirdSportsType.strSportDescription}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!--End of Sports View-->
+
+
